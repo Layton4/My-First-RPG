@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -4534,20 +4534,20 @@ TextureImporter:
       Terrian_47: 2015933091
       Terrian_127: -1806786928
       Terrian_33: 832432359
+      Terrian_153: 2087363578
       Terrian_64: -1447998085
       Terrian_0: -1657050331
-      Terrian_153: 2087363578
       Terrian_55: 135903941
       Terrian_134: 1125341343
       Terrian_137: 636784423
       Terrian_193: 39342856
       Terrian_105: -1483236351
       Terrian_19: 1194491135
-      Terrian_38: -1685715852
       Terrian_73: -1354829309
+      Terrian_38: -1685715852
       Terrian_138: 1099563561
-      Terrian_142: -752949898
       Terrian_3: 372066369
+      Terrian_142: -752949898
       Terrian_26: 700441518
       Terrian_156: -2088670965
       Terrian_28: 469641736

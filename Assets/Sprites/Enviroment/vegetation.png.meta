@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -3173,10 +3173,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       vegetation_7: 1062032144
-      vegetation_12: -557573729
       vegetation_119: -1965634374
-      vegetation_115: -338758560
       vegetation_139: -2135405826
+      vegetation_115: -338758560
+      vegetation_63: 1155567924
       vegetation_70: -575109200
       vegetation_14: -1743753037
       vegetation_141: 661072137
@@ -3313,10 +3313,10 @@ TextureImporter:
       vegetation_75: -1060571650
       vegetation_45: 424016006
       vegetation_131: 1221741413
-      vegetation_63: 1155567924
+      vegetation_19: 603558111
       vegetation_76: 138328730
       vegetation_56: -172453407
-      vegetation_19: 603558111
+      vegetation_12: -557573729
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
