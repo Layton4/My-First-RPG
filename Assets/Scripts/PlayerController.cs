@@ -12,16 +12,18 @@ public class PlayerController : MonoBehaviour
 
     public float xInput, yInput;
 
-    #region ClaseMartes
+    private Rigidbody2D _playerRigidbody;
+
+    //Animation Player
     private bool isWalking = false;
-    private Vector2 lastMovement = Vector2.zero;
-    private Animator playerAnimator;
+    private Vector2 lastDirection = Vector2.zero;
+    private Animator _animator;
     public const string LASTH = "LastHorizontal", LASTV = "LastVertical";
-    #endregion
 
     private void Awake()
     {
-        playerAnimator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
+        _playerRigidbody = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -29,33 +31,46 @@ public class PlayerController : MonoBehaviour
         xInput = Input.GetAxisRaw(HORIZONTAL);
         yInput = Input.GetAxisRaw(VERTICAL);
 
+        //Horizontal Movement
         if(Mathf.Abs(xInput) > inputTol)
         {
             Vector3 translation = new Vector3(xInput * speed * Time.deltaTime, 0, 0);
             //translation.y = yInput * speed * Time.deltaTime;
-            transform.Translate(translation);
+            //transform.Translate(translation);
+            _playerRigidbody.velocity = new Vector2(xInput * speed, 0);
 
             isWalking = true;
+            lastDirection = new Vector2(xInput, 0);
         }
 
+        //Vertical Movement
         if (Mathf.Abs(yInput) > inputTol)
         {
             Vector3 translation_y = new Vector3(0, yInput * speed * Time.deltaTime, 0);
-            transform.Translate(translation_y);
+            //transform.Translate(translation_y);
+            _playerRigidbody.velocity = new Vector2(0, yInput * speed);
 
             isWalking = true;
+            lastDirection = new Vector2(0, yInput);
         }
         
     }
     
     private void LateUpdate()
     {
-        playerAnimator.SetFloat(HORIZONTAL, xInput);
-        playerAnimator.SetFloat(VERTICAL, yInput);
+        if (!isWalking)
+        {
+            _playerRigidbody.velocity = Vector2.zero;
+        }
 
-        playerAnimator.SetBool("IsWalking", isWalking);
-        playerAnimator.SetFloat(LASTH, lastMovement.x);
-        playerAnimator.SetFloat(LASTV, lastMovement.y);
+        _animator.SetFloat(HORIZONTAL, xInput);
+        _animator.SetFloat(VERTICAL, yInput);
+
+        
+        _animator.SetFloat(LASTH, lastDirection.x);
+        _animator.SetFloat(LASTV, lastDirection.y);
+
+        _animator.SetBool("IsWalking", isWalking);
     }
     
 }
