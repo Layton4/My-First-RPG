@@ -20,10 +20,18 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     public const string LASTH = "LastHorizontal", LASTV = "LastVertical";
 
+
+    public static bool playerCreated;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _playerRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        playerCreated = true;
     }
     void Update()
     {
