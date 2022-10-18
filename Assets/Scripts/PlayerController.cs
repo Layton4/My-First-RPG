@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     //Animation Player
     private bool isWalking = false;
-    private Vector2 lastDirection = Vector2.zero;
+    public Vector2 lastDirection = Vector2.zero;
     private Animator _animator;
     public const string LASTH = "LastHorizontal", LASTV = "LastVertical";
 

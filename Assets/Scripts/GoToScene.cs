@@ -8,6 +8,8 @@ public class GoToScene : MonoBehaviour
 
     public bool isAutomatic = true;
     public bool manualEnter;
+
+
     void Start()
     {
         
@@ -15,10 +17,11 @@ public class GoToScene : MonoBehaviour
 
     void Update()
     {
- 
+        
         manualEnter = Input.GetButtonDown("Fire1");
 
     }
+
 
     private void OnTriggerEnter2D(Collider2D otherCollider2D)
     {
