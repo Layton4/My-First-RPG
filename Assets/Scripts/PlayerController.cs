@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public const string LASTH = "LastHorizontal", LASTV = "LastVertical";
 
 
+    public string nextUuid;
+
     public static bool playerCreated;
 
     private void Awake()

@@ -9,6 +9,8 @@ public class GoToScene : MonoBehaviour
     public bool isAutomatic = true;
     public bool manualEnter;
 
+    public string uuid; //Universal unique identifier
+
 
     void Start()
     {
@@ -25,19 +27,21 @@ public class GoToScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D otherCollider2D)
     {
-        if (otherCollider2D.gameObject.CompareTag("Player") && isAutomatic)
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+      Teleport(otherCollider2D.name);
     }
 
     private void OnTriggerStay2D(Collider2D otherCollider2D)
     {
-        if(otherCollider2D.gameObject.CompareTag("Player"))
+        Teleport(otherCollider2D.name);
+    }
+
+    private void Teleport(string objName)
+    {
+        if(objName == "Player")
         {
-            if(!isAutomatic && manualEnter)
+            if(isAutomatic || !isAutomatic && manualEnter)
             {
-                Debug.Log("Teleport");
+                FindObjectOfType<PlayerController>().nextUuid = uuid;
                 SceneManager.LoadScene(sceneName);
             }
         }
