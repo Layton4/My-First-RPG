@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
     public static bool playerCreated;
 
+    private bool isAttacking;
+    [SerializeField] private float attackTime;
+    private float attackTimeCounter;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -41,8 +45,53 @@ public class PlayerController : MonoBehaviour
         xInput = Input.GetAxisRaw(HORIZONTAL);
         yInput = Input.GetAxisRaw(VERTICAL);
 
+        if (isAttacking)
+        {
+            attackTimeCounter -= Time.deltaTime;
+            if (attackTimeCounter < 0)
+            {
+                isAttacking = false;
+            }
+
+        }
+
+        else if (Input.GetMouseButtonDown(0))
+        {
+            isAttacking = true;
+            attackTimeCounter = attackTime;
+        }
+
+        else
+        {
+            Movement();
+        }
+        
+    }
+    
+    private void LateUpdate()
+    {
+        if (!isWalking || isAttacking)
+        {
+            _playerRigidbody.velocity = Vector2.zero;
+        }
+
+        _animator.SetFloat(HORIZONTAL, xInput);
+        _animator.SetFloat(VERTICAL, yInput);
+
+        
+        _animator.SetFloat(LASTH, lastDirection.x);
+        _animator.SetFloat(LASTV, lastDirection.y);
+
+        _animator.SetBool("IsWalking", isWalking);
+
+        _animator.SetBool("IsAttacking", isAttacking);
+
+    }
+
+    private void Movement()
+    {
         //Horizontal Movement
-        if(Mathf.Abs(xInput) > inputTol)
+        if (Mathf.Abs(xInput) > inputTol)
         {
             Vector3 translation = new Vector3(xInput * speed * Time.deltaTime, 0, 0);
             //translation.y = yInput * speed * Time.deltaTime;
@@ -63,24 +112,6 @@ public class PlayerController : MonoBehaviour
             isWalking = true;
             lastDirection = new Vector2(0, yInput);
         }
-        
     }
-    
-    private void LateUpdate()
-    {
-        if (!isWalking)
-        {
-            _playerRigidbody.velocity = Vector2.zero;
-        }
 
-        _animator.SetFloat(HORIZONTAL, xInput);
-        _animator.SetFloat(VERTICAL, yInput);
-
-        
-        _animator.SetFloat(LASTH, lastDirection.x);
-        _animator.SetFloat(LASTV, lastDirection.y);
-
-        _animator.SetBool("IsWalking", isWalking);
-    }
-    
 }

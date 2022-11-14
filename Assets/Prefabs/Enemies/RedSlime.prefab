@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6237931412147161502}
   - component: {fileID: 6237931412147161501}
   - component: {fileID: 6237931412147161503}
+  - component: {fileID: 4887470875722331002}
   - component: {fileID: 6237931412147161488}
+  - component: {fileID: 8656795052362712487}
   - component: {fileID: -8333319063904673724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -124,6 +126,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.05}
   serializedVersion: 2
   m_Radius: 0.19
+--- !u!114 &4887470875722331002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237931412147161499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c376c2ebcd3abf845a40072352220737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRevivePlayer: 2
+  damage: 10
 --- !u!50 &6237931412147161488
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +148,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6237931412147161499}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -145,6 +161,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8656795052362712487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237931412147161499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0c92e1e396cee4494d42079cd46c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!114 &-8333319063904673724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +190,7 @@ MonoBehaviour:
   directionToMove: {x: 0, y: 0}
   timeBetweenSteps: 2
   timeToMakeStep: 2
+  hasRandomMove: 0
+  enemyDirections:
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
