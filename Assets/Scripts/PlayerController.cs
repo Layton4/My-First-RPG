@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _playerRigidbody;
 
+    public bool canMove = true;
+
     //Animation Player
     private bool isWalking = false;
     public Vector2 lastDirection = Vector2.zero;
@@ -38,10 +40,15 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerCreated = true;
+        lastDirection = Vector2.down;
     }
     void Update()
     {
         isWalking = false;
+        if(!canMove)
+        {
+            return;
+        }
         xInput = Input.GetAxisRaw(HORIZONTAL);
         yInput = Input.GetAxisRaw(VERTICAL);
 

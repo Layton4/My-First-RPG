@@ -7,6 +7,8 @@ public class WeaponDamage : MonoBehaviour
 
     public int damage;
     public GameObject bloodParticle;
+    public GameObject canvasDamageNumber;
+
     private GameObject hitPoint;
     void Start()
     {
@@ -29,6 +31,10 @@ public class WeaponDamage : MonoBehaviour
             {
                 Instantiate(bloodParticle, hitPoint.transform.position, hitPoint.transform.rotation);
             }
+
+            GameObject canvas = Instantiate(canvasDamageNumber, hitPoint.transform.position, Quaternion.identity);
+            canvas.GetComponent<DamageNumber>().damagePoints = damage;
+
         }
     }
 }
