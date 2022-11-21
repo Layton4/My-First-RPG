@@ -173,7 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0c92e1e396cee4494d42079cd46c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expWhenDefeated: 10
   maxHealth: 10
+  currentHealth: 0
+  blinkingDuration: 0
 --- !u!114 &-8333319063904673724
 MonoBehaviour:
   m_ObjectHideFlags: 0

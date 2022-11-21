@@ -9,7 +9,10 @@ public class WeaponDamage : MonoBehaviour
     public GameObject bloodParticle;
     public GameObject canvasDamageNumber;
 
+    public int index;
+
     private GameObject hitPoint;
+
     void Start()
     {
         hitPoint = transform.Find("Hit Point").gameObject;

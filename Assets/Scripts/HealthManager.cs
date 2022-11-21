@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    public int expWhenDefeated;
+
     public int maxHealth = 100;
     [SerializeField] private int currentHealth;
 
@@ -68,6 +70,10 @@ public class HealthManager : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+            if(gameObject.tag.Equals("Enemy"))
+            {
+                GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
+            }
             gameObject.SetActive(false);
         }
 
@@ -94,6 +100,7 @@ public class HealthManager : MonoBehaviour
     {
         maxHealth = newMaxHealth;
         currentHealth = maxHealth;
+        HelthBarScript.UpdateHealthBar(currentHealth, maxHealth);
     }
 
 }
